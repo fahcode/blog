@@ -1,0 +1,22 @@
+{
+    "apps": [{
+        "cwd": "./",
+        "name": "blog-admin",
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "error_file": "/home/logs/blog-admin/error",
+        "out_file": "/home/logs/blog-admin/log",
+        "watch": true,
+        "ignore-watch": ["node_modules", ".gitignore "],
+        "script": "./scripts/start.js",
+        "env": {
+            "COMMON_VARIABLE": "true",
+	    "PORT": 4001,
+            "DANGEROUSLY_DISABLE_HOST_CHECK": "true"
+        },
+        "env_production": {
+            "NOOD_ENV": "production",
+            "DANGEROUSLY_DISABLE_HOST_CHECK": "true"
+        }
+    }]
+}
+

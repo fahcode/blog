@@ -1,0 +1,19 @@
+{
+    "apps": [{
+        "cwd": "./",
+        "name": "blog",
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "error_file": "/var/www/logs/blog/error",
+        "out_file": "/var/www/logs/blog/log",
+        "watch": true,
+        "ignore-watch": ["node_modules", ".gitignore "],
+        "script": "server.js",
+        "env": {
+            "COMMON_VARIABLE": "true"
+        },
+        "env_production": {
+            "NOOD_ENV": "production"
+        }
+    }]
+}
+
