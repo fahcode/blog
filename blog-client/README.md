@@ -593,7 +593,7 @@ plugins: [
 
 // manifest.json
 {
-  "name": "小火柴的前端小站",
+  "name": "辉哥的前端小站",
   "short_name": "前端小站",
   "start_url": "/",
   "display": "standalone",

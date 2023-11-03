@@ -47,16 +47,16 @@ module.exports = app => {
         // 接下来，检测密码是否小于20位
         if (!isLengthElt20(password)) return res.status(400).json({ code: 1, message: '密码超出支持位数' })
         // 获取6位随机数
-        const verificationCode = String(Math.random()).slice(-6).padStart(6, '0')
+        const verificationCode = 123456;  // String(Math.random()).slice(-6).padStart(6, '0')
         // 发送短信
-        smsClient.sendSMS({
-          PhoneNumbers: phoneNumber,
-          SignName,
-          TemplateCode,
-          TemplateParam: JSON.stringify({ code: verificationCode })
-        }).then(response => {
-          // 如果验证码发送成功，则新建用户，保存其用户信息到数据库
-          if (response.Code === 'OK') {
+        // smsClient.sendSMS({
+        //   PhoneNumbers: phoneNumber,
+        //   SignName,
+        //   TemplateCode,
+        //   TemplateParam: JSON.stringify({ code: verificationCode })
+        // }).then(response => {
+        //   // 如果验证码发送成功，则新建用户，保存其用户信息到数据库
+        //   if (response.Code === 'OK') {
             const user = new User({ phoneNumber, verificationCode, username, password })
             user.save(err => {
               if (err) { return res.status(500).json({ code: 2, message: err.message, err }) }
@@ -73,8 +73,8 @@ module.exports = app => {
                 }
               )
             }, 60000)
-          }
-        }, err => { if (err) return res.status(500).json({ code: 2, message: err.message, err }) })
+          // }
+        // }, err => { if (err) return res.status(500).json({ code: 2, message: err.message, err }) })
       })
     })
   })
