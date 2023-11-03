@@ -97,7 +97,7 @@ module.exports = {
         }
         console.log(message);
       },
-      navigateFallback: 'https://www.huangfahui.com',
+      navigateFallback: 'http://www.huangfahui.com',
       minify: true,
       navigateFallbackWhitelist: [/^(?!\/__).*/],
       dontCacheBustUrlsMatching: /./,

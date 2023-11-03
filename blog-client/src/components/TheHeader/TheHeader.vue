@@ -1,7 +1,7 @@
 <template>
   <header :class="$style.header">
-    <div :class="$style.logoBox" @click="$router.push('/')">
-      <SVGLogo height="32" width="32"/>
+    <div :class="$style.logoWrap" @click="$router.push('/')">
+      <div :class="$style.logoBox"><SVGLogo height="32" width="32"/></div>
       <h1 :class="$style.title">前端小站</h1>
     </div>
     <BaseAvatar :style="{transform: `rotate(${beta}deg)`}" @click.native="onUserClick">
@@ -88,6 +88,14 @@ export default {
 }
 
 .logoBox {
+  display: inline-flex;
+  width: 32;
+  height: 32;
+  border-radius: 16;
+  overflow: hidden;
+}
+
+.logoWrap {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
