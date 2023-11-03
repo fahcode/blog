@@ -12,7 +12,7 @@ Vue.use(VueLazyload, {
   filter: {
     webp(listener, options) {
       if (!options.supportWebp) return
-      const isCDN = /xiaohuochai.site/
+      const isCDN = /huangfahui.com/
       if (isCDN.test(listener.src)) {
         listener.src += '?imageView2/2/format/webp'
       }

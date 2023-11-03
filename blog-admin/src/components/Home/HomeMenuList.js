@@ -17,7 +17,7 @@ const HomeMenuList = ({ className, logout, commentCount, ...rest }) => (
       <Item onClick={() => { history.push('/commentsinfo') }}>
         <Info /><div>未读评论<BaseBadge>{commentCount}</BaseBadge></div>
       </Item>}
-    <Item onClick={() => { window.location.href = 'https://xiaohuochai.cc' }}><Reception />去往前台</Item>
+    <Item onClick={() => { window.location.href = 'https://blog.huangfahui.com' }}><Reception />去往前台</Item>
     <Item onClick={logout}><Exit />退出</Item>
   </List>
 )

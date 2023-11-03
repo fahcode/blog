@@ -1,10 +1,10 @@
 ## 博客后台管理系统
 
-&emsp;&emsp;该项目是基于react全家桶（React、React-router-dom、redux、styled-components）开发的一套博客后台管理系统，用于[前端小站](https://xiaohuochai.cc)的管理，主要功能包括游客浏览、文章管理、类别管理、评论通知、推荐设置和用户管理
+&emsp;&emsp;该项目是基于react全家桶（React、React-router-dom、redux、styled-components）开发的一套博客后台管理系统，用于[前端小站](https://huangfahui.com)的管理，主要功能包括游客浏览、文章管理、类别管理、评论通知、推荐设置和用户管理
 
 ### 访问地址
 
-&emsp;&emsp;域名：[https://admin.xiaohuochai.cc](https://admin.xiaohuochai.cc)
+&emsp;&emsp;域名：[https://admin.huangfahui.com](https://admin.huangfahui.com)
 
 &emsp;&emsp;Github: [https://github.com/littlematch0123/blog-admin](https://github.com/littlematch0123/blog-admin)
 
@@ -509,8 +509,8 @@ export const BASE_LIKE_URL = `${API_HOSTNAME}/likes`
 export const BASE_COMMENT_URL = `${API_HOSTNAME}/comments`
 export const BASE_RECOMMEND_URL = `${API_HOSTNAME}/recommends`
 export const BASE_QINIU_URL = `${API_HOSTNAME}/qiniu`
-export const STATIC = 'https://static.xiaohuochai.site'
-export const CLIENT_URL = 'https://www.xiaohuochai.cc'
+export const STATIC = 'https://blog.huangfahui.com/static'
+export const CLIENT_URL = 'https://www.huangfahui.com'
 
 // Colors.js
 export const PRIMARY_COLOR = '#00a8e5'

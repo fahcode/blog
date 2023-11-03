@@ -14,5 +14,5 @@ export const BASE_LIKE_URL = `${API_HOSTNAME}/likes`
 export const BASE_COMMENT_URL = `${API_HOSTNAME}/comments`
 export const BASE_RECOMMEND_URL = `${API_HOSTNAME}/recommends`
 export const BASE_QINIU_URL = `${API_HOSTNAME}/qiniu`
-export const STATIC = 'https://static.huangfahui.site'
+export const STATIC = 'https://static.huangfahui.com'
 export const CLIENT_URL = 'http://www.huangfahui.com'
