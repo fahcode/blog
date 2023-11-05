@@ -89,9 +89,9 @@ export default {
 
 .logoBox {
   display: inline-flex;
-  width: 32;
-  height: 32;
-  border-radius: 16;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
   overflow: hidden;
 }
 

@@ -3,7 +3,7 @@ module.exports = {
   uri: 'mongodb://127.0.0.1:27017',
   jwt: {
     secret: 'fahcode',
-    expiresIn: 0
+    expiresIn: 3600
   },
   sms: {
     accessKeyId: '',
