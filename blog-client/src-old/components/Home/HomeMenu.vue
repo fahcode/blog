@@ -13,14 +13,14 @@
 </template>
 <script>
 const menuDatas = [
-  { id: 0, name: '小', category: 'HTML', url: '/categories/1000000000' },
-  { id: 1, name: '火', category: 'CSS', url: '/categories/1100000000' },
-  { id: 2, name: '柴', category: 'JavaScript', url: '/categories/1200000000' },
-  { id: 3, name: '的', category: 'HTTP', url: '/categories/1300000000' },
-  { id: 4, name: '蓝', category: '前端框架', url: '/categories' },
-  { id: 5, name: '色', category: '前端工具', url: '/categories/1500000000' },
-  { id: 6, name: '理', category: '后端相关', url: '/categories' },
-  { id: 7, name: '想', category: '移动端', url: '/categories/1600000000' }
+  { id: 0, name: '记录', category: '记录', url: '/categories/2000000000' },
+  { id: 1, name: '', category: '移动端', url: '/categories/1600000000' },
+  { id: 2, name: 'C', category: 'CSS', url: '/categories/1100000000' },
+  { id: 3, name: 'J', category: 'JavaScript', url: '/categories/1200000000' },
+  { id: 4, name: 'H', category: 'HTTP', url: '/categories/1300000000' },
+  { id: 5, name: '框架', category: '前端框架', url: '/categories' },
+  { id: 6, name: '工具', category: '前端工具', url: '/categories/1500000000' },
+  { id: 7, name: '后端', category: '后端相关', url: '/categories' }
 ]
 export default {
   data() {
