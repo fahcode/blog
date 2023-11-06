@@ -14,13 +14,13 @@
 <script>
 const menuDatas = [
   { id: 0, name: '记录', category: '记录', url: '/categories/2000000000' },
-  { id: 1, name: '', category: '移动端', url: '/categories/1600000000' },
-  { id: 2, name: 'C', category: 'CSS', url: '/categories/1100000000' },
-  { id: 3, name: 'J', category: 'JavaScript', url: '/categories/1200000000' },
-  { id: 4, name: 'H', category: 'HTTP', url: '/categories/1300000000' },
-  { id: 5, name: '框架', category: '前端框架', url: '/categories' },
+  { id: 1, name: 'H5', category: '移动端', url: '/categories/1600000000' },
+  { id: 2, name: 'CSS', category: 'CSS', url: '/categories/1100000000' },
+  { id: 3, name: 'JS', category: 'JavaScript', url: '/categories/1200000000' },
+  { id: 4, name: '网络', category: 'HTTP', url: '/categories/1300000000' },
+  { id: 5, name: '框架', category: '前端框架', url: '/categories/1400000000' },
   { id: 6, name: '工具', category: '前端工具', url: '/categories/1500000000' },
-  { id: 7, name: '后端', category: '后端相关', url: '/categories' }
+  { id: 7, name: '后端', category: '后端相关', url: '/categories/1700000000' }
 ]
 export default {
   data() {
