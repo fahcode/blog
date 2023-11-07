@@ -153,6 +153,15 @@ export const getCategoryByFilter = createSelector([getCategories, getCategoriesF
 export const getCategoryParentNumberByFilter = createSelector(getCategoriesFilter,
   filter => (getParentNumber(filter)))
 
+// 获取新的父id
+export const getCategoryNextParentNumber = createSelector(getCategories, datas => {
+  // 从大到小
+  const parents = datas.filter(t => Number(String(t.number).slice(2)) === 0)
+  parents.sort((a, b) => b.number - a.number)
+  // 当前最大序号+1
+  return parents[0] ? getNumber(String(Number(String(parents[0].number).slice(0, 2)) + 1)) : NaN
+})
+
 export const getChildrenCategoriesByFilter = createSelector([getCategories, getCategoriesFilter],
   (datas, filter) => {
     const reg = getRegExpForChildrenCategoriesByNumber(filter)
@@ -171,6 +180,7 @@ export const getRootCategories = createSelector(getCategories, datas => (
 ))
 
 export const getNewChildCategoryNumberByNumber = createSelector(getCategoryByFilter, data => {
+  console.log()
   if (data.number == null) return NaN
   const temp = getNumberWithoutPostPositiveZero(data.number)
   // 如果相等，说明类别已经到达最深层级，无法再新增子元素。用NaN表示假值

@@ -15,6 +15,7 @@ import {
   getCategoryByFilter,
   addCategoryAsync,
   updateCategoryAsync,
+  getCategoryNextParentNumber,
   getNewChildCategoryNumberByNumber
 } from './module'
 
@@ -23,13 +24,15 @@ class CategoryForm extends React.Component {
     super(props)
     this.state = {
       name: '',
-      description: ''
+      description: '',
+      index: ''
     }
   }
 
   componentDidMount() {
     const { operate, match, setCategoriesFilter } = this.props
-    setCategoriesFilter(Number(match.params.id)).then(() => {
+    // 当没有match.params.id的时候是更新大类
+    match.params.id !== 0 && setCategoriesFilter(Number(match.params.id)).then(() => {
       if (operate === 'update') {
         const { category } = this.props
         const { name, description } = category
@@ -47,32 +50,40 @@ class CategoryForm extends React.Component {
       match,
       addCategoryAsync,
       updateCategoryAsync,
+      newParentCategoryNumber,
       newChildCategoryNumber,
       showAlertText,
       hideAlertText
     } = this.props
     const { id } = match.params
-    const { name, description } = this.state
+    const { name, description, index } = this.state
+    console.log('=====newChildCategoryNumber', id, newParentCategoryNumber, newChildCategoryNumber)
+    // 新增子项目，
     if (operate === 'add') {
+      const addParent = id === '0'
       // 如果要新增的子级类别数字返回假值，则进行报错
-      if (Number.isNaN(newChildCategoryNumber)) {
+      if (!addParent && Number.isNaN(newChildCategoryNumber)) {
         showAlertText('类别超过最深层级，无法新增！')
         setTimeout(() => {
           hideAlertText()
         }, 2000)
       } else {
-        addCategoryAsync({ name, description, number: newChildCategoryNumber }).then(() => {
-          history.push(`/categories/${getParentNumber(newChildCategoryNumber)}`)
+        const data = { name, description, number: addParent ? newParentCategoryNumber : newChildCategoryNumber }
+        if (index) data.index = index
+        addCategoryAsync(data).then(() => {
+          addParent ? history.goBack() : history.push(`/categories/${getParentNumber(newChildCategoryNumber)}`)
         })
       }
     } else {
+      const data = { name, description, number: Number(id) }
+      if (index) data.index = index
       updateCategoryAsync({ name, description, number: Number(id) }).then(() => {
         history.goBack()
       })
     }
   }
   render() {
-    const { name, description } = this.state
+    const { name, description, index } = this.state
     return (
       <BaseFullScreen>
         <BaseMask />
@@ -87,6 +98,11 @@ class CategoryForm extends React.Component {
             onChange={e => this.setState({ description: e.target.value })}
             placeholder="描述"
           />
+          <StyledInput
+            value={index}
+            onChange={e => this.setState({ index: String(e.target.value) })}
+            placeholder="排序"
+          />
           <ButtonBox onConfirmClick={this.onConfirmClick} cancelColor="#fff" />
         </Inner>
       </BaseFullScreen>
@@ -100,6 +116,7 @@ CategoryForm.propTypes = {
   setCategoriesFilter: PropTypes.func.isRequired,
   showAlertText: PropTypes.func.isRequired,
   hideAlertText: PropTypes.func.isRequired,
+  newParentCategoryNumber: PropTypes.number,
   newChildCategoryNumber: PropTypes.number,
   match: PropTypes.shape({
     exact: PropTypes.bool,
@@ -116,10 +133,12 @@ CategoryForm.propTypes = {
   })
 }
 CategoryForm.defaultProps = {
+  newParentCategoryNumber: NaN,
   newChildCategoryNumber: NaN,
   category: null
 }
 const mapStateToProps = state => ({
+  newParentCategoryNumber: getCategoryNextParentNumber(state),
   newChildCategoryNumber: getNewChildCategoryNumberByNumber(state),
   category: getCategoryByFilter(state)
 })

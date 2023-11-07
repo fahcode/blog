@@ -25,7 +25,7 @@ class CategoryItem extends React.Component {
     history.push(`${this.baseUrl}/delete`)
   }
   render() {
-    const { data, index, length } = this.props
+    const { data, index } = this.props
     const showBox = (
       <React.Fragment>
         <Index>{index}、</Index>
@@ -39,8 +39,8 @@ class CategoryItem extends React.Component {
       {
         title: '删除',
         key: 'delete',
-        onClick: this.onDeleteClick,
-        hidenCondition: !(index === length && data.count === 0)
+        onClick: this.onDeleteClick
+        // hidenCondition: !(index === length && data.count === 0)
       }
     ]
     return (
@@ -58,12 +58,10 @@ CategoryItem.propTypes = {
     number: PropTypes.number,
     name: PropTypes.string
   }).isRequired,
-  index: PropTypes.number,
-  length: PropTypes.number
+  index: PropTypes.number
 }
 CategoryItem.defaultProps = {
-  index: null,
-  length: null
+  index: null
 }
 export default CategoryItem
 

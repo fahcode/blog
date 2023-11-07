@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.wrap">
     <nav>
-      <router-link :class="$style.item" to="/categories/1000000000">记录</router-link>
+      <router-link :class="$style.item" to="/categories/2000000000">记录</router-link>
       <router-link :class="$style.item" to="/categories/1000000000">HTML</router-link>
       <router-link :class="$style.item" to="/categories/1100000000">CSS</router-link>
       <router-link :class="$style.item" to="/categories/1200000000">JavaScript</router-link>

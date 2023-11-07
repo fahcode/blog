@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { DARK_LINE_COLOR, PRIMARY_COLOR, PRIMARY_BG_COLOR } from '@/constants/Colors'
 
 const BaseArticle = ({ ...rest, text }) =>
-  (<StyledMarkdown {...rest} skipHtml={false} source={text} escapeHtml={false} />)
+  (<StyledMarkdown {...rest} skipHtml={false} source={text} escapeHtml={false} remarkPlugins={[]} />)
 
 BaseArticle.propTypes = {
   text: PropTypes.string

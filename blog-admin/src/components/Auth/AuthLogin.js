@@ -69,7 +69,7 @@ class Login extends React.Component {
             <StyledButton onClick={this.onButtonClick}>登&nbsp;录</StyledButton>
             <StyledButtonInverted onClick={this.onVisitorLogin}>游客登录</StyledButtonInverted>
           </form>
-          <Introduction>小火柴的蓝色理想</Introduction>
+          <Introduction>辉哥的小站</Introduction>
         </Inner>
       </StyledScreen>
     )

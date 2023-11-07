@@ -12,6 +12,7 @@ import BreadCrumb from '@/common/BreadCrumb'
 import BaseMask from '@/common/BaseMask'
 import LinkageSelector from '@/common/LinkageSelector'
 import { setCategoriesFilter, getRootCategories, getChildrenCategoriesByFilter } from '@/components/Category/module'
+import BaseArticle from '@/common/BaseArticle'
 import { addPostAsync, updatePostAsync } from './PostsModule'
 import { getPostWithTitleDatas } from './PostModule'
 
@@ -91,6 +92,7 @@ class PostForm extends React.Component {
       doShowSelector,
       currentSelectorDatas
     } = this.state
+    const showPreView = document.body.clientWidth > 900
     return (
       <StyledScreen>
         <Inner>
@@ -102,11 +104,14 @@ class PostForm extends React.Component {
             <Label>类别</Label>
             {!!titleDatas && <StyledCrumb datas={titleDatas} />}
           </InputBox>
-          <StyledTextArea
-            value={content}
-            onChange={e => this.setState({ content: e.target.value })}
-            placeholder="内容"
-          />
+          <StyledTextBox>
+            <StyledTextArea
+              value={content}
+              onChange={e => this.setState({ content: e.target.value })}
+              placeholder="内容"
+            />
+            {showPreView ? <BaseArticleBox><BaseArticle text={content} /></BaseArticleBox> : null}
+          </StyledTextBox>
           <ButtonBox onConfirmClick={this.onConfirmClick} />
         </Inner>
         {doShowSelector && (
@@ -163,7 +168,7 @@ const Inner = styled.div`
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  max-width: 960px;
+  max-width: 90%;
   height: 100%;
   padding: 20px 10px;
   margin: 0 auto;
@@ -189,6 +194,12 @@ const Label = styled.label`
   transform: translateY(-50%);
 `
 
+const StyledTextBox = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+`
+
 const StyledInput = styled(BaseInput)`
   padding: 6px 10px;
   border-bottom: 2px solid ${DARK_BG_COLOR};
@@ -201,6 +212,11 @@ const StyledTextArea = styled(BaseTextArea)`
   height: auto;
   margin: 10px 0;
   color: rgba(0, 0, 0, .8);
+`
+
+const BaseArticleBox = styled.div`
+  width: 46%;
+  margin-left: 5px;
 `
 
 const StyledCrumb = styled(BreadCrumb)`

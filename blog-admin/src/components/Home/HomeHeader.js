@@ -51,7 +51,7 @@ class HomeHeader extends React.Component {
       <Header>
         <LogoBox onClick={() => { history.push('/') }} >
           <Logo height="32" width="32" />
-          <Title>小火柴的蓝色理想</Title>
+          <Title>辉哥的小站</Title>
         </LogoBox>
         <MenuBox onClick={this.onChangeStatus}>
           <Menu />

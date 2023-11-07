@@ -11,7 +11,8 @@ class DeleteCategory extends React.Component {
     const { deleteCategoryAsync, match } = this.props
     const number = Number(match.params.id)
     deleteCategoryAsync({ number }).then(() => {
-      history.push(`/categories/${getParentNumber(number)}`)
+      const parentNumber = getParentNumber(number)
+      parentNumber ? history.push(`/categories/${parentNumber}`) : history.goBack()
     })
   }
   render() {

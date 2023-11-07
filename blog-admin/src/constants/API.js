@@ -1,6 +1,7 @@
 let API_HOSTNAME
 if (process.env.NODE_ENV === 'development') {
-  API_HOSTNAME = '/local'
+  // API_HOSTNAME = '/local'
+  API_HOSTNAME = '/api'
 } else {
   API_HOSTNAME = '/api'
 }
