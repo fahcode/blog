@@ -11,7 +11,9 @@ const PostSchema = new Schema(
     likes: [{ type: Schema.Types.ObjectId, ref: 'Like' }],
     imgUrl: { type: String },
     recommend: { type: Boolean },
-    index: { type: Number }
+    index: { type: Number },
+    createTime: { type: Number },
+    updateTime: { type: Number }
   },
   {
     timestamps: true

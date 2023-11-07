@@ -40,7 +40,9 @@ module.exports = app => {
 
   /* 新增一篇文章 */
   app.post('/posts', adminAuth, (req, res) => {
-    new Post(req.body).save((err, doc) => {
+    // 自动添加更新时间
+    const updateTime = Date.now()
+    new Post({ ...req.body, updateTime }).save((err, doc) => {
       if (err) return res.status(500).json({ code: 2, message: err.message, err })
       doc.populate({ path: 'category', select: 'number' }, (err, doc) => {
         if (err) return res.status(500).json({ code: 2, message: err.message, err })
@@ -59,6 +61,8 @@ module.exports = app => {
         const [key, value] = temp
         doc[key] = value
       })
+      // 自动添加更新时间
+      doc.updateTime = Date.now()
       doc.save(err => {
         if (err) return res.status(500).json({ code: 2, message: err.message, err })
         doc.populate({ path: 'category', select: 'number' }, (err, doc) => {

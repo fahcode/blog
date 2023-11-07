@@ -39,7 +39,8 @@ class PostForm extends React.Component {
         titleDatas: [],
         category: '',
         doShowSelector: false,
-        currentSelectorDatas: []
+        currentSelectorDatas: [],
+        createTime: ''
       }
     }
   }
@@ -50,7 +51,7 @@ class PostForm extends React.Component {
     }
   }
   onConfirmClick = () => {
-    const { _id, category, title, content, description } = this.state
+    const { _id, category, title, content, description, createTime } = this.state
     const text = window.btoa(unescape(encodeURIComponent(content)))
     const { updatePostAsync, operate, addPostAsync } = this.props
     if (operate === 'update') {
@@ -58,7 +59,12 @@ class PostForm extends React.Component {
         history.push(`/posts/${_id}`)
       })
     } else {
-      addPostAsync({ category, title, description, content: text })
+      const data = { category, title, description, content: text }
+      // 如果传了创建时间，则添加创建时间
+      if (createTime) {
+        data.createTime = new Date(createTime).getTime()
+      }
+      addPostAsync(data)
     }
   }
   onSelectCategory = () => {
@@ -104,6 +110,10 @@ class PostForm extends React.Component {
             <Label>类别</Label>
             {!!titleDatas && <StyledCrumb datas={titleDatas} />}
           </InputBox>
+          {this.props.operate !== 'update' ? <InputBox>
+            <Label>指定创建时间</Label>
+            <StyledInput id="createTime" value={createTime} onChange={e => this.setState({ createTime: e.target.value })} />
+          </InputBox> : null}
           <StyledTextBox>
             <StyledTextArea
               value={content}
