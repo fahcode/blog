@@ -96,7 +96,8 @@ class PostForm extends React.Component {
       content,
       titleDatas,
       doShowSelector,
-      currentSelectorDatas
+      currentSelectorDatas,
+      createTime
     } = this.state
     const showPreView = document.body.clientWidth > 900
     return (
@@ -110,10 +111,12 @@ class PostForm extends React.Component {
             <Label>类别</Label>
             {!!titleDatas && <StyledCrumb datas={titleDatas} />}
           </InputBox>
-          {this.props.operate !== 'update' ? <InputBox>
-            <Label>指定创建时间</Label>
-            <StyledInput id="createTime" value={createTime} onChange={e => this.setState({ createTime: e.target.value })} />
-          </InputBox> : null}
+          {this.props.operate !== 'update' && (
+            <InputBox>
+              <Label>指定创建时间</Label>
+              <StyledInput id="createTime" value={createTime} onChange={e => this.setState({ createTime: e.target.value })} />
+            </InputBox>
+          )}
           <StyledTextBox>
             <StyledTextArea
               value={content}
