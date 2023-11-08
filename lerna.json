@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.1",
+  "description": "",
+  "workspaces": [
+    "packages/*"
+  ],
+  "command": {
+    "bootsrap": {
+      "hoist": true
+    }
+  },
+  "useWorkspaces": true
+}
