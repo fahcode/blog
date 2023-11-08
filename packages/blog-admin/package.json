@@ -59,7 +59,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lintcss": "stylelint 'src/**/*.js'",
-    "server": "npm run build && pm2 ecosystem.json"
+    "server": "npm run build && pm2 start ecosystem.json"
   },
   "proxy": {
     "/local": {

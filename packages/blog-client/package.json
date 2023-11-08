@@ -12,7 +12,7 @@
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.conf.js --progress --hide-modules",
     "build": "rimraf dist && npm run build:client && npm run build:server",
     "lintcss": "stylelint **/*.vue",
-    "server": "npm run build && pm2 ecosystem.json"
+    "server": "npm run build && pm2 start ecosystem.json"
   },
   "dependencies": {
     "axios": "^0.18.0",
