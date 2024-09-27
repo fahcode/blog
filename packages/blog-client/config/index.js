@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target:'http://api.huangfahui.com',
+        target:'http://api.lefrit.com',
         changeOrigin:true,
         pathRewrite:{'^/api':''}
       }
@@ -55,7 +55,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'http://blog.huangfahui.com/',
+    assetsPublicPath: 'http://blog.lefrit.com/',
 
     /**
      * Source Maps

@@ -1,6 +1,6 @@
 let API_HOSTNAME
 if (process.env.NODE_ENV === 'production') {
-  API_HOSTNAME = 'http://api.huangfahui.com'
+  API_HOSTNAME = 'http://api.lefrit.com'
 } else {
   API_HOSTNAME = '/api'
 }
@@ -16,4 +16,4 @@ export const BASE_CATEGORY_URL = `${API_HOSTNAME}/categories`
 export const BASE_LIKE_URL = `${API_HOSTNAME}/likes`
 export const BASE_COMMENT_URL = `${API_HOSTNAME}/comments`
 
-export const ADMIN_URL = 'http://admin.huangfahui.com'
+export const ADMIN_URL = 'http://admin.lefrit.com'

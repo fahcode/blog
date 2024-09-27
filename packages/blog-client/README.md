@@ -4,7 +4,7 @@
 
 ### 访问地址
 
-&emsp;&emsp;域名：[https://huangfahui.com](https://huangfahui.com)
+&emsp;&emsp;域名：[https://lefrit.com](https://lefrit.com)
 
 &emsp;&emsp;Github: [https://github.com/littlematch0123/blog-client](https://github.com/littlematch0123/blog-client)
 
@@ -560,7 +560,7 @@ plugins: [
       }
       console.log(message);
     },
-    navigateFallback: 'https://www.huangfahui.com',
+    navigateFallback: 'https://www.lefrit.com',
     minify: true,
     navigateFallbackWhitelist: [/^(?!\/__).*/],
     dontCacheBustUrlsMatching: /./,
@@ -707,7 +707,7 @@ beforeDestroy() {
 // API.js
 let API_HOSTNAME
 if (process.env.NODE_ENV === 'production') {
-  API_HOSTNAME = 'https://api.huangfahui.com'
+  API_HOSTNAME = 'https://api.lefrit.com'
 } else {
   API_HOSTNAME = '/api'
 }
@@ -723,7 +723,7 @@ export const BASE_CATEGORY_URL = `${API_HOSTNAME}/categories`
 export const BASE_LIKE_URL = `${API_HOSTNAME}/likes`
 export const BASE_COMMENT_URL = `${API_HOSTNAME}/comments`
 
-export const ADMIN_URL = 'https://admin.huangfahui.com'
+export const ADMIN_URL = 'https://admin.lefrit.com'
 ```
 
 【函数节流】
@@ -750,10 +750,10 @@ export const throttle = (fn, wait = 100) => function func(...args) {
 &emsp;&emsp;DNS预解析通过设置meta标签实现
 
 ```
-<link rel="dns-prefetch" href="//api.huangfahui.com" />
-<link rel="dns-prefetch" href="//static.huangfahui.com" />
-<link rel="dns-prefetch" href="//demo.huangfahui.com" />
-<link rel="dns-prefetch" href="//pic.huangfahui.com" />
+<link rel="dns-prefetch" href="//api.lefrit.com" />
+<link rel="dns-prefetch" href="//static.lefrit.com" />
+<link rel="dns-prefetch" href="//demo.lefrit.com" />
+<link rel="dns-prefetch" href="//pic.lefrit.com" />
 ```
 
 【图片懒加载和webp】
@@ -767,7 +767,7 @@ Vue.use(VueLazyload, {
   filter: {
     webp(listener, options) {
       if (!options.supportWebp) return
-      const isCDN = /huangfahui.com/
+      const isCDN = /lefrit.com/
       if (isCDN.test(listener.src)) {
         listener.src += '?imageView2/2/format/webp'
       }

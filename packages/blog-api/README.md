@@ -4,7 +4,7 @@
 
 【域名】
 
-&emsp;&emsp;api.huangfahui.com 
+&emsp;&emsp;api.lefrit.com 
   
 
 【功能模块】
